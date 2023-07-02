@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
     <title>Weather Dashboard</title>
 </head>
 
@@ -19,12 +21,15 @@
         <div class="row">
             <div class="col-4">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="input-city">Search</span>
-                    <input type="text" class="form-control" placeholder="Search for a city" aria-label="search-city" aria-describedby="serach-for-a-city">
-                  </div>
+                    <form id="user-form" class="card-body">
+                        <label class="form-label" for="search-city">Search for a city</label>
+                        <input name="search-city" id="search-city" type="text" autofocus="true" class="form-input" />
+                        <button type="submit" class="btn btn-primary">Search</button>
+                      </form>
+                </div>
 
                 <div class="btn ">
-                    <button type="button" class="btn btn-primary">Clear History</button>
+                    <button type="button" class="btn btn-primary search-btn">Clear History</button>
                 </div>
 
                 <div class="search-history">
@@ -33,24 +38,74 @@
             </div>
 
             <div class="col-8">
-                <div class="row col-8 border border-primary" id="today-weather">
+                <div class="row col-15 border border-primary" id="today-weather">
                     <h3 class="city-name" id="current-city">Search for a city</h3>
                     <h4>Temp: <span id="current-temperature"></span></h4>
                     <h4>Wind: <span id="current-wind"></span></h4>
                     <h4>Humidity: <span id="current-humidity"></span></h4>
                 </div>
 
-                <div class="row col-8">
+                <div class="row col-15">
                     <h3>Forecast for the next 5 days</h3>
+                    <div class="card col-2 text-white bg-primary">
+                        <div class="forecast-body">
+                            <p id="forecast1-date"> </p>
+                            <p id="forecast1-temp">Temp: </p>
+                            <p id="forecast1-wind">Wind: </p>
+                            <p id="forecast1-humidity">Humidity: </p>
+                        </div>
+                    </div>
 
+                    <div class="card col-2 text-white bg-primary">
+                        <div class="forecast-body">
+                            <p id="forecast2-date"> </p>
+                            <p id="forecast2-temp">Temp: </p>
+                            <p id="forecast2-wind">Wind: </p>
+                            <p id="forecast2-humidity">Humidity: </p>
+                        </div>
+                    </div>
+
+                    <div class="card col-2 text-white bg-primary">
+                        <div class="forecast-body">
+                            <p id="forecast3-date"> </p>
+                            <p id="forecast3-temp">Temp: </p>
+                            <p id="forecast3-wind">Wind: </p>
+                            <p id="forecast3-humidity">Humidity: </p>
+                        </div>
+                    </div>
+
+                    <div class="card col-2 text-white bg-primary">
+                        <div class="forecast-body">
+                            <p id="forecast4-date"> </p>
+                            <p id="forecast4-temp">Temp: </p>
+                            <p id="forecast4-wind">Wind: </p>
+                            <p id="forecast4-humidity">Humidity: </p>
+                        </div>
+                    </div>
+
+                    <div class="card col-2 text-white bg-primary">
+                        <div class="forecast-body">
+                            <p id="forecast5-date"> </p>
+                            <p id="forecast5-temp">Temp: </p>
+                            <p id="forecast5-wind">Wind: </p>
+                            <p id="forecast5-humidity">Humidity: </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script src="./Assets/js/script.js"></script>
 
+    <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
+  
 </body>
 
 
