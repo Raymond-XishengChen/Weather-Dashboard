@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <header class="row align-items-center">
+        <header class="row align-items-center text-center">
             <h3>Weather Dashboard</h3></header>
 
     </div>
@@ -28,17 +28,14 @@
                       </form>
                 </div>
 
-                <div class="btn ">
-                    <button type="button" class="btn btn-primary search-btn">Clear History</button>
-                </div>
 
                 <div class="search-history">
-
+                    <ul class="history-items"></ul>
                 </div>
             </div>
 
             <div class="col-8">
-                <div class="row col-15 border border-primary" id="today-weather">
+                <div class="row col-15 border border-primary bg-primary bg-gradient text-white" id="today-weather">
                     <h3 class="city-name" id="current-city">Search for a city</h3>
                     <h4>Temp: <span id="current-temperature"></span></h4>
                     <h4>Wind: <span id="current-wind"></span></h4>
@@ -47,7 +44,7 @@
 
                 <div class="row col-15">
                     <h3>Forecast for the next 5 days</h3>
-                    <div class="card col-2 text-white bg-primary">
+                    <div class="card col-2 text-white bg-primary bg-gradient">
                         <div class="forecast-body">
                             <p id="forecast1-date"> </p>
                             <p id="forecast1-temp">Temp: </p>
@@ -56,7 +53,7 @@
                         </div>
                     </div>
 
-                    <div class="card col-2 text-white bg-primary">
+                    <div class="card col-2 text-white bg-primary bg-gradient">
                         <div class="forecast-body">
                             <p id="forecast2-date"> </p>
                             <p id="forecast2-temp">Temp: </p>
@@ -65,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="card col-2 text-white bg-primary">
+                    <div class="card col-2 text-white bg-primary bg-gradient">
                         <div class="forecast-body">
                             <p id="forecast3-date"> </p>
                             <p id="forecast3-temp">Temp: </p>
@@ -74,7 +71,7 @@
                         </div>
                     </div>
 
-                    <div class="card col-2 text-white bg-primary">
+                    <div class="card col-2 text-white bg-primary bg-gradient">
                         <div class="forecast-body">
                             <p id="forecast4-date"> </p>
                             <p id="forecast4-temp">Temp: </p>
@@ -83,7 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="card col-2 text-white bg-primary">
+                    <div class="card col-2 text-white bg-primary bg-gradient">
                         <div class="forecast-body">
                             <p id="forecast5-date"> </p>
                             <p id="forecast5-temp">Temp: </p>

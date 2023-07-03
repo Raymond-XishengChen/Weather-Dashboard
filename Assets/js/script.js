@@ -1,6 +1,7 @@
 // var city = "";
 var userFormEl = document.querySelector('#user-form');
 // var userFormEl = $('#user-form');
+var searchEl = document.querySelector('.history-items');
 var cityEl = document.querySelector('#search-city');
 // var searchBtn = $(".search-btn");
 var weatherAPI = "6353b75fff5792bfafcdc2bafb0e1246";
@@ -18,7 +19,7 @@ var formSubmitHandler = function (event) {
     var city = cityEl.value.trim();
   
     if (city) {
-        console.log("city")
+        console.log(city)
         getSearchCity(city);
   
     //   repoContainerEl.textContent = '';
@@ -47,10 +48,18 @@ var getSearchCity = function (city) {
             $("#current-wind").html(windSpeedMPH + ' MPH');
             $("#current-humidity").html(data.main.humidity + ' %');
 
-            saveList.push(city.toUpperCase());
-            localStorage.setItem("searchHistory",JSON.stringify(saveList));
+            if(saveList === null){ 
+              saveList=[];
+              saveList.push(city.toUpperCase());
+              localStorage.setItem("searchHistory",JSON.stringify(saveList));
+            }
+             else {
+              saveList.push(city.toUpperCase());
+              localStorage.setItem("searchHistory",JSON.stringify(saveList));
+            }
+            appendHistory(city);
+
             readSearchHistory();
-            displayHistory(city);
           });
 
         } else {
@@ -86,6 +95,8 @@ var getSearchCity = function (city) {
 
             var humidityForecast = data.list[hourIndex].main.humidity;
             $(`#forecast${dayCounter+1}-humidity`).html('Humidity: ' + humidityForecast + '%');
+
+            
           }
         });
       } else {
@@ -103,12 +114,28 @@ function readSearchHistory(){
     console.log(saveList);
 }
 
-function displayHistory(savedCity){
-    var historyCities = $("<p" + savedCity + "</p>");
-    $(historyCities).attr("class","search-history");
-    $(historyCities).attr("data-value",savedCity.toUpperCase());
-    $(".search-history").append(historyCities);
+function appendHistory(city){
+  var listEl= $("<li>" + city.toUpperCase() + "</li>");
+  $(listEl).attr("class","history-list");
+  $(listEl).attr("value",city.toUpperCase());
+  $(".history-items").append(listEl);
 }
+
+function searchInHistory(event){
+  var historyItems = event.target;
+  if(event.target.matches("li")){
+    city = historyItems.value.trim();
+    getSearchCity(city);
+  }
+}
+
+searchEl.addEventListener("click", function(event) {
+  var element = event.target;
+  if (element.matches("li")) {
+    city = element.textContent;
+    getSearchCity(city);
+  }
+})
 
 userFormEl.addEventListener('submit', formSubmitHandler);
 readSearchHistory();
